@@ -12,6 +12,12 @@ body {
     color: #d2d0d0;
 }
 
+p {
+    font-size: 20px;
+    text-align: left;
+    color: #d2d0d0;
+}
+
 h1 {
     color: #d2d0d0;
 }
