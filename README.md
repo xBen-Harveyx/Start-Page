@@ -6,7 +6,7 @@ A sleek, minimalist browser start page with customizable shortcuts and live weat
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
 ![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-222222?style=flat-square&logo=github&logoColor=white)
-![OpenWeatherMap](https://img.shields.io/badge/OpenWeatherMap-ED6E00?style=flat-square&logo=openweathermap&logoColor=white)
+![Open-Meteo](https://img.shields.io/badge/Open--Meteo-Weather%20API-orange?style=flat-square)
 ![Responsive](https://img.shields.io/badge/Responsive-Design-brightgreen?style=flat-square)
 ![License](https://img.shields.io/badge/License-MIT-blue?style=flat-square)
 
@@ -24,13 +24,10 @@ A sleek, minimalist browser start page with customizable shortcuts and live weat
 ## Quick Start
 
 1. **Fork this repository** or download the files
-2. **Add your profile picture** as `profile.jpg` (120x120px recommended)
-3. **Get a weather API key** from [OpenWeatherMap](https://openweathermap.org/api) (free)
-4. **Update the API key** in `script.js`:
-   ```javascript
-   const WEATHER_API_KEY = 'your_api_key_here';
-   ```
-5. **Deploy to GitHub Pages** via repository settings
+2. **Add your profile picture** as `assets/profile.png` (120x120px recommended)
+3. **Deploy to GitHub Pages** via repository settings
+
+**That's it!** No API keys needed - the weather service is completely free.
 
 ## Customization
 
@@ -53,9 +50,9 @@ The weather widget automatically detects your location. To set a default locatio
 
 ```javascript
 const DEFAULT_LOCATION = {
-    lat: 40.7128,
-    lon: -74.0060,
-    name: 'New York'
+    lat: 41.141,
+    lon: -81.4768,
+    name: 'Cleveland'
 };
 ```
 
@@ -73,23 +70,24 @@ Key CSS variables for easy customization:
 ├── 📄 index.html          # Main HTML structure
 ├── 🎨 style.css           # All styling and responsive design
 ├── ⚡ script.js           # Weather API and interactions
-├── 🖼️ profile.jpg         # Your profile picture (add this)
+├── 🖼️ assets/profile.png     # Your profile picture (add this)
 └── 📖 README.md          # This file
 ```
 
-## Weather API Setup
+## Weather API
 
-![OpenWeatherMap](https://img.shields.io/badge/API-OpenWeatherMap-ED6E00?style=flat-square&logo=openweathermap&logoColor=white)
+![Open-Meteo](https://img.shields.io/badge/API-Open--Meteo-orange?style=flat-square)
 
-1. Visit [OpenWeatherMap](https://openweathermap.org/api)
-2. Sign up for a free account
-3. Generate an API key from your dashboard
-4. Replace `YOUR_OPENWEATHER_API_KEY_HERE` in `script.js`
+This project uses [Open-Meteo](https://open-meteo.com/), a free weather API that requires **no API key or registration**!
 
-**Free tier includes:**
-- ✅ 1,000 API calls per day
-- ✅ Current weather data
-- ✅ 5-day forecast (not used but available)
+**Features:**
+- ✅ Completely free, no limits
+- ✅ No API key required  
+- ✅ Accurate weather data
+- ✅ Global coverage
+- ✅ Fast response times
+
+The weather automatically detects your location or uses the default coordinates you set in `script.js`.
 
 ## Browser Support
 

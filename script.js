@@ -1,12 +1,11 @@
-// Weather API configuration
-const WEATHER_API_KEY = 'YOUR_OPENWEATHER_API_KEY_HERE';
-const WEATHER_API_URL = 'https://api.openweathermap.org/data/2.5/weather';
+// Weather API configuration - using Open-Meteo (no API key required!)
+const WEATHER_API_URL = 'https://api.open-meteo.com/v1/forecast';
 
 // Default location (you can change this)
 const DEFAULT_LOCATION = {
-    lat: 40.7128,
-    lon: -74.0060,
-    name: 'New York'
+    lat: 41.141,
+    lon: -81.4768,
+    name: 'Cleveland' // You can update this to your city name
 };
 
 // Initialize the page
@@ -43,14 +42,9 @@ async function initializeWeather() {
 }
 
 async function fetchWeatherByCoords(lat, lon) {
-    if (WEATHER_API_KEY === 'YOUR_OPENWEATHER_API_KEY_HERE') {
-        showWeatherSetupMessage();
-        return;
-    }
-
     try {
         const response = await fetch(
-            `${WEATHER_API_URL}?lat=${lat}&lon=${lon}&appid=${WEATHER_API_KEY}&units=imperial`
+            `${WEATHER_API_URL}?latitude=${lat}&longitude=${lon}&current=temperature_2m,weather_code&timezone=auto&temperature_unit=fahrenheit`
         );
         
         if (!response.ok) {
@@ -66,20 +60,40 @@ async function fetchWeatherByCoords(lat, lon) {
 }
 
 function updateWeatherDisplay(data) {
-    const temperature = Math.round(data.main.temp);
-    const weatherCode = data.weather[0].main.toLowerCase();
+    const temperature = Math.round(data.current.temperature_2m);
+    const weatherCode = data.current.weather_code;
     
-    // Map weather conditions to emojis
+    // Map Open-Meteo weather codes to emojis
+    // Reference: https://open-meteo.com/en/docs
     const weatherIcons = {
-        'clear': '☀️',
-        'clouds': '☁️',
-        'rain': '🌧️',
-        'drizzle': '🌦️',
-        'thunderstorm': '⛈️',
-        'snow': '❄️',
-        'mist': '🌫️',
-        'fog': '🌫️',
-        'haze': '🌫️'
+        0: '☀️',      // Clear sky
+        1: '🌤️',      // Mainly clear
+        2: '⛅',      // Partly cloudy
+        3: '☁️',      // Overcast
+        45: '🌫️',     // Fog
+        48: '🌫️',     // Depositing rime fog
+        51: '🌦️',     // Drizzle: Light
+        53: '🌦️',     // Drizzle: Moderate
+        55: '🌦️',     // Drizzle: Dense
+        56: '🌧️',     // Freezing drizzle: Light
+        57: '🌧️',     // Freezing drizzle: Dense
+        61: '🌧️',     // Rain: Slight
+        63: '🌧️',     // Rain: Moderate
+        65: '🌧️',     // Rain: Heavy
+        66: '🌧️',     // Freezing rain: Light
+        67: '🌧️',     // Freezing rain: Heavy
+        71: '❄️',     // Snow fall: Slight
+        73: '❄️',     // Snow fall: Moderate
+        75: '❄️',     // Snow fall: Heavy
+        77: '❄️',     // Snow grains
+        80: '🌦️',     // Rain showers: Slight
+        81: '🌧️',     // Rain showers: Moderate
+        82: '🌧️',     // Rain showers: Violent
+        85: '🌨️',     // Snow showers: Slight
+        86: '🌨️',     // Snow showers: Heavy
+        95: '⛈️',     // Thunderstorm: Slight or moderate
+        96: '⛈️',     // Thunderstorm with slight hail
+        99: '⛈️'      // Thunderstorm with heavy hail
     };
     
     const icon = weatherIcons[weatherCode] || '🌤️';
@@ -94,8 +108,8 @@ function showWeatherError() {
 }
 
 function showWeatherSetupMessage() {
-    document.getElementById('weatherIcon').textContent = '⚙️';
-    document.getElementById('temperature').textContent = 'API';
+    document.getElementById('weatherIcon').textContent = '✅';
+    document.getElementById('temperature').textContent = 'Ready';
 }
 
 // Profile picture functionality
