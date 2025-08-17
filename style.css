@@ -1,0 +1,191 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 25%, #16213e 50%, #0f1419 75%, #000000 100%);
+    color: #ffffff;
+    min-height: 100vh;
+    padding: 2rem;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+    min-height: 100vh;
+    justify-content: center;
+    padding-top: 2rem;
+}
+
+.profile-section {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.profile-picture {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.profile-picture:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.4);
+}
+
+.main-content {
+    display: flex;
+    gap: 4rem;
+    align-items: flex-start;
+    width: 100%;
+    justify-content: center;
+}
+
+.shortcuts-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 1.5rem;
+    min-width: 600px;
+}
+
+.shortcut-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5rem 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    text-decoration: none;
+    color: #ffffff;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    min-height: 100px;
+    justify-content: center;
+}
+
+.shortcut-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.shortcut-icon {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 0.5rem;
+    opacity: 0.9;
+    transition: opacity 0.3s ease;
+}
+
+.shortcut-btn:hover .shortcut-icon {
+    opacity: 1;
+}
+
+.shortcut-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.shortcut-label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-align: center;
+    opacity: 0.9;
+    transition: opacity 0.3s ease;
+}
+
+.shortcut-btn:hover .shortcut-label {
+    opacity: 1;
+}
+
+.weather-widget {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    min-width: auto;
+    max-width: none;
+}
+
+.weather-icon {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+.weather-temp {
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 1rem;
+    }
+    
+    .container {
+        gap: 2rem;
+    }
+    
+    .main-content {
+        flex-direction: column;
+        gap: 2rem;
+        align-items: center;
+    }
+    
+    .shortcuts-grid {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+        min-width: auto;
+        max-width: 400px;
+    }
+    
+    .profile-picture {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .weather-widget {
+        min-width: auto;
+        max-width: none;
+        width: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .shortcuts-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(6, 1fr);
+        max-width: 300px;
+    }
+    
+    .shortcut-btn {
+        min-height: 80px;
+        padding: 1rem 0.5rem;
+    }
+    
+    .shortcut-icon {
+        width: 28px;
+        height: 28px;
+    }
+    
+    .shortcut-label {
+        font-size: 0.8rem;
+    }
+}
