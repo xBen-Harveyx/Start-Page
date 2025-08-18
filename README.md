@@ -10,8 +10,6 @@ A sleek, minimalist browser start page with customizable shortcuts and live weat
 ![Responsive](https://img.shields.io/badge/Responsive-Design-brightgreen?style=flat-square)
 ![License](https://img.shields.io/badge/License-MIT-blue?style=flat-square)
 
-![Start Page Preview](https://via.placeholder.com/800x400/0a0a0a/ffffff?text=Modern+Start+Page+Preview)
-
 ## Features
 
 - **🎨 Modern Dark Design** - Sophisticated gradient background with glass-morphism effects
@@ -98,35 +96,6 @@ The weather automatically detects your location or uses the default coordinates 
 | ![Safari](https://img.shields.io/badge/Safari-000000?style=flat-square&logo=safari&logoColor=white) | 12+ | ✅ Supported |
 | ![Edge](https://img.shields.io/badge/Edge-0078D4?style=flat-square&logo=microsoftedge&logoColor=white) | 79+ | ✅ Supported |
 
-## Responsive Breakpoints
-
-| Device | Layout | Breakpoint |
-|--------|--------|------------|
-| 🖥️ **Desktop** | 6×2 grid layout | Default |
-| 📱 **Tablet** | 3×4 grid layout | ≤ 768px |
-| 📱 **Mobile** | 2×6 grid layout | ≤ 480px |
-
-## Contributing
-
-Found a bug or want to add a feature? Contributions are welcome!
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## License
-
-This project is open source and available under the [MIT License](LICENSE).
-
-## Inspiration & Credits
-
-- Icons from various sources (GitHub, YouTube, etc. - replace with your preferred icon set)
-- Weather data from [OpenWeatherMap](https://openweathermap.org)
-- Glass-morphism design inspired by modern UI trends
-
----
 
 **Made with ❤️ for a better browsing experience**
 
