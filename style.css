@@ -1,65 +1,77 @@
-* {
+/* Brand-specific icon colors */
+.shortcut-btn[data-name="GitHub"] .shortcut-icon {
+    color: #ffffff;
+}
+
+.shortcut-btn[data-name="YouTube"] .shortcut-icon {
+    color: #FF0000;
+}
+
+.shortcut-btn[data-name="Gmail"] .shortcut-icon {
+    color: #EA4335;
+}
+
+.shortcut-btn[data-name="Reddit"] .shortcut-icon {
+    color: #FF4500;
+}
+
+.shortcut-btn[data-name="Twitter"] .shortcut-icon {
+    color: #1DA1F2;
+}
+
+.shortcut-btn[data-name="Claude"] .shortcut-icon {
+    color: #D97706;
+}
+
+.shortcut-btn[data-name="Proton"] .shortcut-icon {
+    color: #6366F1;
+}* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 25%, #16213e 50%, #0f1419 75%, #000000 100%);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background: linear-gradient(135deg, #0a141a 0%, #0f1b21 25%, #14252e 50%, #0f1e26 75%, #08121a 100%);
     color: #ffffff;
     min-height: 100vh;
+    overflow-x: hidden;
+    margin: 0;
     padding: 2rem;
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 3rem;
-    min-height: 100vh;
-    justify-content: center;
-    padding-top: 2rem;
+    display: grid;
+    grid-template-areas: 
+        "profile . weather"
+        ". shortcuts .";
+    grid-template-columns: 200px 1fr 200px;
+    grid-template-rows: auto 1fr;
+    min-height: calc(100vh - 4rem);
+    gap: 2rem;
+    align-items: start;
 }
 
 .profile-section {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 1rem;
-}
-
-.profile-picture {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 4px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-}
-
-.profile-picture:hover {
-    transform: scale(1.05);
-    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.4);
+    grid-area: profile;
 }
 
 .main-content {
+    grid-area: shortcuts;
     display: flex;
-    gap: 4rem;
-    align-items: flex-start;
-    width: 100%;
     justify-content: center;
+    align-items: center;
 }
 
-.shortcuts-grid {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    gap: 1.5rem;
-    min-width: 600px;
+.weather-widget {
+    grid-area: weather;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
 }
 
 .shortcut-btn {
@@ -68,13 +80,14 @@ body {
     align-items: center;
     padding: 1.5rem 1rem;
     background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: none;
     border-radius: 16px;
     text-decoration: none;
     color: #ffffff;
     transition: all 0.3s ease;
     backdrop-filter: blur(10px);
-    min-height: 100px;
+    width: 100px;
+    height: 100px;
     justify-content: center;
 }
 
@@ -114,65 +127,85 @@ body {
     opacity: 1;
 }
 
-.weather-widget {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-    min-width: auto;
-    max-width: none;
+.profile-picture {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.profile-picture:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.4);
+}
+
+.shortcuts-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: 1fr;
+    gap: 2rem;
+    justify-items: center;
 }
 
 .weather-icon {
-    font-size: 3rem;
+    font-size: 3.5rem;
     margin-bottom: 0.5rem;
 }
 
 .weather-temp {
-    font-size: 1.5rem;
-    font-weight: 300;
+    font-size: 1.4rem;
+    font-weight: bold;
     color: rgba(255, 255, 255, 0.9);
 }
 
-@media (max-width: 768px) {
-    body {
-        padding: 1rem;
+@media (max-width: 1200px) {
+    .shortcuts-grid {
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        gap: 1.5rem;
     }
     
     .container {
-        gap: 2rem;
+        grid-template-areas: 
+            "profile weather"
+            "shortcuts shortcuts";
+        grid-template-columns: 1fr 1fr;
+        padding: 1.5rem;
     }
     
     .main-content {
-        flex-direction: column;
-        gap: 2rem;
-        align-items: center;
-    }
-    
-    .shortcuts-grid {
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(4, 1fr);
-        min-width: auto;
-        max-width: 400px;
-    }
-    
-    .profile-picture {
-        width: 100px;
-        height: 100px;
-    }
-    
-    .weather-widget {
-        min-width: auto;
-        max-width: none;
-        width: auto;
+        justify-self: center;
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
+    .container {
+        grid-template-areas: 
+            "profile"
+            "weather" 
+            "shortcuts";
+        grid-template-columns: 1fr;
+        padding: 1rem;
+        text-align: center;
+    }
+    
+    .profile-section, .weather-widget {
+        justify-self: center;
+    }
+    
     .shortcuts-grid {
         grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(6, 1fr);
-        max-width: 300px;
+        grid-template-rows: repeat(4, 1fr);
+        gap: 1rem;
+    }
+    
+    .profile-picture {
+        width: 120px;
+        height: 120px;
     }
     
     .shortcut-btn {
