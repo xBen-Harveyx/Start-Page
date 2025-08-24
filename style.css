@@ -33,7 +33,7 @@
 
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-    background: linear-gradient(204deg,rgba(24, 62, 77, 1) 0%, rgba(39, 92, 55, 1) 60%, rgba(3, 3, 59, 1) 100%);
+    background: radial-gradient(circle,rgba(27, 4, 48, 1) 0%, rgba(9, 46, 27, 1) 69%, rgba(3, 3, 59, 1) 100%);
     color: #ffffff;
     min-height: 100vh;
     overflow-x: hidden;
